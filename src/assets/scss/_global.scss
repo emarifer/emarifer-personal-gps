@@ -1,0 +1,42 @@
+/* Resets & Settings */
+
+@font-face {
+    font-family: 'Jojoba';
+    src: url(/fonts/Jojoba.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1D2125;
+}
+
+h1 {
+    display: inline;
+    padding: 0 1rem;
+    padding-top: .6rem;
+    padding-bottom: .3rem;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+}
+
+section {
+    margin: .75rem 0;
+}
+
+hr {
+    border-top: 1px solid rgb(96, 169, 238);
+}

@@ -1,0 +1,31 @@
+@import 'mixins';
+
+.btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    @include btn-hover;
+}
+
+.btn-info {
+    @extend .btn;
+    background-color: #42A5F5;
+}
+
+.btn-navigation {
+    @extend .btn;
+    background-color: #00BFA5;
+}
+
+.btn-nonavigation {
+    @extend .btn;
+    background-color: #E53935;
+}
+
+.btn-remove {
+    @extend .btn;
+    background-color: #E91E63;
+}

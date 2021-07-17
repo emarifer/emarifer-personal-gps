@@ -1,0 +1,34 @@
+/* Custom styles */
+
+.title {
+    font-family: 'Jojoba', sans-serif;
+    color: #ffffff80;
+    text-align: center;
+}
+
+#map {
+    width: calc(100vw - 2 * .5rem);
+    height: 60vh;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.custom-label {
+    color: white;
+    background-color: purple;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    padding: .3rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    @include btn-hover;    
+}
+
+#input-track {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}

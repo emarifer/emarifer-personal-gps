@@ -1,0 +1,13 @@
+@mixin btn-hover() {
+    transition: transform 100ms;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+@mixin modal-bottom($align) {
+    height: 2.5rem;
+    display: flex;
+    justify-content: $align;
+    padding: .3rem 1rem;
+}

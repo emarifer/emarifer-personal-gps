@@ -1,0 +1,17 @@
+.snackbar {
+    position: fixed;
+    bottom: .5rem;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    width: calc(100vw - 2 * .5rem);
+    height: 3.5rem;
+    background-color: #37474F;
+    color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 200;
+}

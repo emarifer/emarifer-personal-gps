@@ -1,0 +1,34 @@
+{
+  "name": "emarifer-personal-gps",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "keywords": [],
+  "author": "emarifer",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "leaflet": "^1.7.1",
+    "leaflet-gpx": "^1.5.2",
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.11",
+    "vue-material-design-icons": "^4.12.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "sass": "^1.35.2",
+    "sass-loader": "^10.2.0",
+    "style-resources-loader": "^1.4.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
