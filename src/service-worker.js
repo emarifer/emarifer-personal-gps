@@ -7,7 +7,7 @@ workbox.routing.registerRoute(
         cacheName: 'cache-map',
         plugins: [
             new workbox.expiration.Plugin({
-                maxEntries: 500,// Limitamos a 60 el  número de recursos de ese directorio que queremos cachear.
+                maxEntries: 600,// Limitamos a 60 el  número de recursos de ese directorio que queremos cachear.
                 maxAgeSeconds: 24 * 60 * 60// Tiempo de vida de la cache 
             })
         ]
