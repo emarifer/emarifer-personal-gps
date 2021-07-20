@@ -1,3 +1,5 @@
+@use '../../assets/scss/buttons';
+
 .snackbar {
     position: fixed;
     bottom: .5rem;
@@ -14,4 +16,14 @@
     align-items: center;
     padding: 0 1rem;
     z-index: 200;
+}
+
+// Media
+
+@media screen and (min-width: 450px) {
+    .snackbar {
+      width: 375px;
+      transform: translate(0%);
+      left: calc(100vw - 375px - .5rem);
+    }
 }

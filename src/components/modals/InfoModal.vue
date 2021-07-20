@@ -52,3 +52,5 @@
         },
     }
 </script>
+
+<style src="./styles.scss" scoped lang="scss" />

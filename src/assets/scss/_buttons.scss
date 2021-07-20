@@ -1,4 +1,4 @@
-@import 'mixins';
+@use './mixins';
 
 .btn {
     width: 2.75rem;
@@ -7,7 +7,7 @@
     outline: none;
     border-radius: 50%;
     cursor: pointer;
-    @include btn-hover;
+    @include mixins.btn-hover;
 }
 
 .btn-info {

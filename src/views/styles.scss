@@ -1,0 +1,57 @@
+@use '../assets/scss/mixins';
+@use '../assets/scss/cards';
+@use '../assets/scss/overlay-transitions';
+@use '../assets/scss/buttons';
+
+/* Custom styles */
+
+.title {
+    font-family: 'Jojoba', sans-serif;
+    color: #ffffff80;
+    text-align: center;
+}
+
+#map {
+    width: calc(100vw - 2 * .5rem);
+    height: 60vh;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.custom-label {
+    color: white;
+    background-color: purple;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    padding: .3rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    @include mixins.btn-hover;    
+}
+
+#input-track {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+// Medias
+
+@media screen and (min-height: 700px) {
+    #map {
+      height: 70vh;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #map, .card {
+      width: calc(100% - (2 * (0.1 * 100%)));
+      margin-left: calc(0.1 * 100%);
+      margin-right: calc(0.1 * 100%);
+    }
+}
+
+/* SOBRE EL USO DE CALC: https://stackoverflow.com/questions/27597034/calc-function-inside-another-calc-in-css */

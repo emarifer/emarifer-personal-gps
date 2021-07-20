@@ -18,10 +18,10 @@ export default {
         initMap() {
 
             const baseMaps = {
-                "Spain_MapasrasterIGN": this.Spain_MapasrasterIGN,
-                "Spain_PNOA_Ortoimagen": this.Spain_PNOA_Ortoimagen,
-                "OpenStreetMap": this.OpenStreetMap,
-                "OpenTopoMap": this.OpenTopoMap,
+                "Spain Mapa Raster IGN": this.Spain_MapasrasterIGN,
+                "Spain PNOA Ortoimagen": this.Spain_PNOA_Ortoimagen,
+                "Open Street Map": this.OpenStreetMap,
+                "Open Topo Map": this.OpenTopoMap,
             };
 
             this.map = L.map('map', {

@@ -1,21 +1,5 @@
-@import 'mixins';
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 1.2s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0
-}
-
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    background: #00000090;
-}
+@use '../../assets/scss/mixins';
+@use '../../assets/scss/buttons';
 
 .modal {
     position: fixed;
@@ -50,10 +34,14 @@
     }
 }
 
+hr {
+    border-top: 1px solid purple; // rgb(96, 169, 238)
+}
+
 .modal-action {
-    @include modal-bottom(flex-end);
+    @include mixins.modal-bottom(flex-end);
 }
 
 .modal-actions {
-    @include modal-bottom(space-between);
+    @include mixins.modal-bottom(space-between);
 }

@@ -1,9 +1,9 @@
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/' // /my-pwa/
-    : '/',
+  // publicPath: process.env.NODE_ENV === 'production'
+  //   ? '/' // /my-pwa/
+  //   : '/',
   pages: {
     index: {
       entry: 'src/main.js',
@@ -27,21 +27,21 @@ module.exports = {
       background_color: "#088C2F"
     }
   },
-  chainWebpack: config => {
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
-  },
+  // chainWebpack: config => {
+  //   const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+  //   types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+  // },
 };
 
-function addStyleResource(rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-        patterns: [
-            path.resolve(__dirname, './src/assets/scss/*.scss'),
-        ],
-    })
-}
+// function addStyleResource(rule) {
+//   rule.use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//         patterns: [
+//             path.resolve(__dirname, './src/assets/scss/*.scss'),
+//         ],
+//     })
+// }
 
 // CONFIGURACION PARA USO DE SASS. VER:
 // https://cli.vuejs.org/guide/css.html#automatic-imports

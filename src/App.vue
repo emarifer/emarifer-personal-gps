@@ -1,203 +1,59 @@
 <template>
   <div id="app">
-
-    <!-- Modals -->
-    <transition name="fade">
-      <div class="modal-overlay" v-if="showInfo || showRemoveCache"></div>
-    </transition>
-
-    <transition name="fade">
-      <info-modal
-        v-if="showInfo"
-        v-on:close_info="onCloseInfo"
-        :gpxLoaded="gpxLoaded"
-        :name="name"
-        :distance="distance"
-        :maxElevation="maxElevation"
-        :time="time" />
-      <!-- <div class="modal" v-if="showInfo">
-        <div class="modal-title">
-          <information-icon :size="24" fillColor="#fff" />
-          <h4>Track Info</h4>
-        </div>
-        <div class="modal-content">
-          <ul v-if="gpxLoaded">
-            <li><strong>Nombre: </strong>{{ name }}</li>
-            <li><strong>Distancia: </strong>{{ distance }}</li>
-            <li><strong>Máxima elevación: </strong>{{ maxElevation }}</li>
-            <li><strong>Duración: </strong>{{ time }}</li>
-          </ul>
-          <p v-else><strong>No hay Track cargado!! 🙁</strong></p>
-        </div>
-        <hr>
-        <div class="modal-action">
-          <close-box-icon class="btn" :size="30" @click="showInfo = false" fillColor="#6E6E6E" />
-        </div>
-      </div> -->
-    </transition>
-
-    <transition name="fade">
-      <remove-cache-modal
-        v-if="showRemoveCache"
-        v-on:close_remove_cache="onCloseRemoveCache"
-        v-on:remove_cache="removeCache" />
-      <!-- <div class="modal" v-if="showRemoveCache">
-        <div class="modal-title">
-          <map-icon :size="24" fillColor="#fff" />
-          <h4>Borrar Caché de Mapas?</h4>
-        </div>
-        <div class="modal-content">
-          <p><strong>Sin Internet no podrás ver mapas!! 🙁</strong></p>
-        </div>
-        <hr>
-        <div class="modal-actions">
-          <delete-circle-icon class="btn" :size="30" @click="removeCacheMap" fillColor="#E91E63" />
-          <close-box-icon class="btn" :size="30" @click="showRemoveCache = false" fillColor="#6E6E6E" />
-        </div>
-      </div> -->
-    </transition>
-
-    <!-- Snackbar: Update Notice -->
-    <transition name="fade">
-      <snackbar v-on:close_snackbar="onCloseSnackbar" v-if="updateExists" />
-      <!-- <div class="snackbar" v-if="updateExists">
-        <p><strong>Actualización disponible!!</strong> 😀</p>
-        <button class="btn" @click="refreshApp">
-          <img src="gif/icons8-refresh.gif" width="22" height="22" alt="Refresh">
-        </button>
-      </div> -->
-    </transition>
-
-    <!-- Title -->
-    <section class="title">
-      <h1>Mi GPS Personal</h1>
-    </section>
-
-    <!-- Map -->
-    <section id="map"></section>
-
-    <!-- Input Trak -->
-    <section class="card">
-      <label class="custom-label" for="input-track">
-        <paperclip-icon :size="30" fillColor="#fff" />
-        Seleccionar Track…
-      </label>
-      <input ref="fileuploader" type="file" accept="application/gpx+xml" @click="resetFileUploader" @change="openFile" id="input-track">
-      <delete-icon class="btn" @click="removeTrack" :size="30" fillColor="#fff" title="Eliminar Track" />
-    </section>
-
-    <!-- Buttons -->
-    <section class="card">
-      <button class="btn-info" @click="showInfo = true">
-        <information-icon :size="30" fillColor="#fff" title="Información del Track" />
-      </button>
-      <button :class="btnNavigation" @click="checkLocation">
-        <map-marker-radius-icon :size="30" fillColor="#fff" title="Iniciar GPS" />
-      </button>
-      <button class="btn-remove" @click="showRemoveCache = true">
-        <map-icon :size="30" fillColor="#fff" title="Eliminar Caché de Mapas" />
-      </button>
-    </section>
+    <my-gps />
   </div>
 </template>
 
 <script>
-  import update from '@/mixins/update';
-  import handlers from '@/mixins/handlers';
-  import PaperclipIcon from 'vue-material-design-icons/Paperclip.vue';
-  import DeleteIcon from 'vue-material-design-icons/Delete.vue';
-  import InformationIcon from 'vue-material-design-icons/Information.vue';
-  import MapMarkerRadiusIcon from 'vue-material-design-icons/MapMarkerRadius.vue';
-  import MapIcon from 'vue-material-design-icons/Map.vue';  
-  import DeleteCircleIcon from 'vue-material-design-icons/DeleteCircle.vue';
-  import InfoModal from '@/components/InfoModal';
-  import RemoveCacheModal from '@/components/RemoveCacheModal';
-  import Snackbar from '@/components/Snackbar';
-  // import CloseBoxIcon from 'vue-material-design-icons/CloseBox.vue';
+  import MyGps from '@/views/MyGps';
 
   export default {
     name: 'App',
     components: {
-      PaperclipIcon,
-      DeleteIcon,
-      InformationIcon,
-      MapMarkerRadiusIcon,
-      MapIcon,
-      DeleteCircleIcon,
-      InfoModal,
-      RemoveCacheModal,
-      Snackbar,
-      // CloseBoxIcon,
-    },
-    data() {
-      return {
-        map: null,
-        gpxLoaded: null,
-        name: '',
-        distance: '',
-        maxElevation: '',
-        time: '',
-        btnNavigation: 'btn-navigation',
-        locationActive: false,
-        marker: null,
-        circles: null,
-        showInfo: false,
-        showRemoveCache: false,
-      }
-    },
-    mixins: [update, handlers],
-    mounted() {
-      this.resetMarkerIcon();
-
-      this.initMap();
-
-      // Redraw the track if it exists in LocalStorage when starting the app
-      const data = window.localStorage.getItem('gpx');
-      if (data && data.length !== 0) {
-          this.displayTrack(data);
-      }
-    },
-    methods: {
-      onCloseInfo() {
-        this.showInfo = false;
-      },
-      onCloseRemoveCache() {
-        this.showRemoveCache = false;
-      },
-      removeCache() {
-        this.removeCacheMap();
-      },
-      onCloseSnackbar() {
-        this.refreshApp();
-      },
-    },
+      MyGps,
+    }
   }
 </script>
 
-<style lang="scss">       
+<style>
+  /* Resets & Settings */
 
-  @media screen and (min-height: 700px) {
-    #map {
-        height: 70vh; 
-    }
+  @font-face {
+    font-family: 'Jojoba';
+    src: url(./assets/fonts/jojoba.woff);
   }
 
-  @media screen and (min-width: 450px) {
-    .snackbar {
-      width: 375px;
-      transform: translate(0%);
-      left: calc(100vw - 375px - .5rem);
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  @media screen and (min-width: 700px) {
-    #map, .card {
-      width: calc(100% - (2 * (0.1 * 100%)));
-      margin-left: calc(0.1 * 100%);
-      margin-right: calc(0.1 * 100%);
-    }     
+  html,
+  body {
+    height: 100%;
+    font-family: sans-serif;
   }
-  /* SOBRE EL USO DE CALC: https://stackoverflow.com/questions/27597034/calc-function-inside-another-calc-in-css */
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1D2125;
+  }
+
+  h1 {
+    display: inline;
+    padding: 0 1rem;
+    padding-top: .6rem;
+    padding-bottom: .3rem;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+  }
+
+  section {
+    margin: .75rem 0;
+  }
 </style>
 
 <!-- 
