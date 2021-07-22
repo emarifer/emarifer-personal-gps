@@ -86,11 +86,11 @@ export default {
         checkLocation() {
             if (!this.locationActive) {
                 this.locationActive = true;
-                this.btnNavigation = 'btn-nonavigation';
+                this.btnNavigation = 'btn--nonavigation';
                 this.initializeLocator();
             } else {
                 this.locationActive = false;
-                this.btnNavigation = 'btn-navigation';
+                this.btnNavigation = 'btn--navigation';
                 this.map.stopLocate();
                 if (this.map.hasLayer(this.circles) && this.map.hasLayer(this.marker)) {
                     this.map.removeLayer(this.circles);

@@ -1,14 +1,14 @@
 <template>
     <div class="modal">
-        <div class="modal-title">
+        <div class="modal__title">
           <map-icon :size="24" fillColor="#fff" />
           <h4>Borrar Caché de Mapas?</h4>
         </div>
-        <div class="modal-content">
+        <div class="modal__content">
           <p><strong>Sin Internet no podrás ver mapas!! 🙁</strong></p>
         </div>
         <hr>
-        <div class="modal-actions">
+        <div class="modal__actions--two-buttons">
           <delete-circle-icon class="btn" :size="30" @click="removeCache" fillColor="#E91E63" />
           <close-box-icon class="btn" :size="30" @click="closeRemoveCache" fillColor="#6E6E6E" />
         </div>

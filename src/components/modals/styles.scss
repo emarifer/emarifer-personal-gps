@@ -14,9 +14,18 @@
     transform: translate(-50%, -50%);
     overflow: hidden;
     z-index: 200;
+    
+    h4 {
+        margin: .8rem 0;
+    }
+
+    hr {
+        margin: 0;
+        border-top: 1px solid purple; // rgb(96, 169, 238)
+    }
 }
 
-.modal-title {
+.modal__title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +34,7 @@
     background-color: purple;
 }
 
-.modal-content {
+.modal__content {
     font-size: 14px;
     ul {
         margin-left: .5rem;
@@ -35,19 +44,10 @@
     }
 }
 
-h4 {
-    margin: .8rem 0;
-}
-
-hr {
-    margin: 0;
-    border-top: 1px solid purple; // rgb(96, 169, 238)
-}
-
-.modal-action {
+.modal__actions {
     @include mixins.modal-bottom(flex-end);
 }
 
-.modal-actions {
+.modal__actions--two-buttons {
     @include mixins.modal-bottom(space-between);
 }

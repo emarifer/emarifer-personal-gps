@@ -10,22 +10,28 @@
     @include mixins.btn-hover;
 }
 
-.btn-info {
+.btn--delete-track {
+    @extend .btn;
+    width: auto;
+    height: auto;
+}
+
+.btn--info {
     @extend .btn;
     background-color: #42A5F5;
 }
 
-.btn-navigation {
+.btn--navigation {
     @extend .btn;
     background-color: #00BFA5;
 }
 
-.btn-nonavigation {
+.btn--nonavigation {
     @extend .btn;
     background-color: #E53935;
 }
 
-.btn-remove {
+.btn--remove-cache {
     @extend .btn;
     background-color: #E91E63;
 }

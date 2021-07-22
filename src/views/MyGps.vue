@@ -42,20 +42,19 @@
                 <paperclip-icon :size="30" fillColor="#fff" />
                 Seleccionar Track…
             </label>
-            <input ref="fileuploader" type="file" accept="application/gpx+xml" @click="resetFileUploader"
-                @change="openFile" id="input-track">
-            <delete-icon class="btn" @click="removeTrack" :size="30" fillColor="#fff" title="Eliminar Track" />
+            <input ref="fileuploader" type="file" accept="application/gpx+xml" @click="resetFileUploader" @change="openFile" id="input-track">
+            <delete-icon class="btn--delete-track" @click="removeTrack" :size="30" fillColor="#fff" title="Eliminar Track" />
         </section>
 
         <!-- Buttons -->
         <section class="card">
-            <button class="btn-info" @click="showInfo = true">
+            <button class="btn--info" @click="showInfo = true">
                 <information-icon :size="30" fillColor="#fff" title="Información del Track" />
             </button>
             <button :class="btnNavigation" @click="checkLocation">
                 <map-marker-radius-icon :size="30" fillColor="#fff" title="Iniciar GPS" />
             </button>
-            <button class="btn-remove" @click="showRemoveCache = true">
+            <button class="btn--remove-cache" @click="showRemoveCache = true">
                 <map-icon :size="30" fillColor="#fff" title="Eliminar Caché de Mapas" />
             </button>
         </section>
@@ -94,7 +93,7 @@
                 distance: '',
                 maxElevation: '',
                 time: '',
-                btnNavigation: 'btn-navigation',
+                btnNavigation: 'btn--navigation',
                 locationActive: false,
                 marker: null,
                 circles: null,

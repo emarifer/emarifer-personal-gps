@@ -1,10 +1,10 @@
 <template>
     <div class="modal">
-        <div class="modal-title">
+        <div class="modal__title">
           <information-icon :size="24" fillColor="#fff" />
           <h4>Track Info</h4>
         </div>
-        <div class="modal-content">
+        <div class="modal__content">
           <ul v-if="gpxLoaded">
             <li><strong>Nombre: </strong>{{ name }}</li>
             <li><strong>Distancia: </strong>{{ distance }}</li>
@@ -14,7 +14,7 @@
           <p v-else><strong>No hay Track cargado!! 🙁</strong></p>
         </div>
         <hr>
-        <div class="modal-action">
+        <div class="modal__actions">
           <close-box-icon class="btn" :size="30" @click="closeInfo" fillColor="#6E6E6E" />
         </div>
     </div>
