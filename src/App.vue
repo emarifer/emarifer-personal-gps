@@ -23,14 +23,16 @@
     src: url(./assets/fonts/jojoba.woff);
   }
 
-  * {
-    margin: 0;
-    padding: 0;
+  *,
+  *::after,
+  *::before {
     box-sizing: border-box;
   }
 
   html,
   body {
+    margin: 0;
+    padding: 0;
     height: 100%;
     font-family: sans-serif;
   }
